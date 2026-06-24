@@ -55,7 +55,7 @@ A highly polished, Notion-inspired Task Manager built for **Assignment 1**. This
 
 ## 📁 Deliverables
 - **Source Code**: Included in this repository.
-- **GitHub Repository**: [Your GitHub Link Here]
+- **GitHub Repository**: https://github.com/Henry4501/TaskManager
 - **Documentation**: Provided in this README.md.
 
 **Developed as part of Assignment 1 - Simple Task Manager.**
