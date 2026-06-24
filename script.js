@@ -2,6 +2,18 @@
 const taskInput = document.getElementById('taskInput');
 const addButton = document.getElementById('addButton');
 const taskList = document.getElementById('taskList');
+const taskCount = document.getElementById('taskCount');
+const completedCount = document.getElementById('completedCount');
+const emptyState = document.getElementById('emptyState');
+
+function refreshTaskStats() {
+    const tasks = taskList.querySelectorAll('li');
+    const completedTasks = taskList.querySelectorAll('li.completed');
+
+    taskCount.innerText = tasks.length;
+    completedCount.innerText = completedTasks.length;
+    emptyState.style.display = tasks.length === 0 ? 'block' : 'none';
+}
 
 // Function to add a new task
 function addTask() {
@@ -30,6 +42,7 @@ function addTask() {
     completeBtn.classList.add('complete-btn');
     completeBtn.onclick = function() {
         li.classList.toggle('completed');
+        refreshTaskStats();
     };
 
     // Delete Button
@@ -38,6 +51,7 @@ function addTask() {
     deleteBtn.classList.add('delete-btn');
     deleteBtn.onclick = function() {
         taskList.removeChild(li);
+        refreshTaskStats();
     };
 
     // Append elements
@@ -46,6 +60,7 @@ function addTask() {
     li.appendChild(taskSpan);
     li.appendChild(actionsDiv);
     taskList.appendChild(li);
+    refreshTaskStats();
 
     // Clear input field
     taskInput.value = "";
@@ -61,3 +76,5 @@ taskInput.addEventListener('keypress', function (e) {
         addTask();
     }
 });
+
+refreshTaskStats();

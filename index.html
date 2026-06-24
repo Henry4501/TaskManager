@@ -3,24 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Task Manager</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Task Manager Workspace</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <div class="container">
-        <h1>Task Manager</h1>
-        
-        <!-- Input Section -->
-        <div class="input-section">
-            <input type="text" id="taskInput" placeholder="Enter a task name..." aria-label="Task Name">
-            <button id="addButton">Add Task</button>
-        </div>
+    <div class="page-shell">
+        <aside class="sidebar">
+            <div class="brand-lockup">
+                <div class="brand-mark">T</div>
+                <div>
+                    <p class="eyebrow">Workspace</p>
+                    <h1>Task Manager</h1>
+                </div>
+            </div>
 
-        <!-- Task List Section -->
-        <ul id="taskList">
-            <!-- Tasks will be injected here by JavaScript -->
-        </ul>
+            <div class="sidebar-card">
+                <p class="sidebar-label">Today</p>
+                <strong>Plan. Focus. Finish.</strong>
+                <p>Keep work in one calm, Notion-like space with a clean canvas and quick actions.</p>
+            </div>
+
+            <div class="sidebar-card stats-card">
+                <div>
+                    <span class="stat-value" id="taskCount">0</span>
+                    <span class="stat-label">tasks</span>
+                </div>
+                <div>
+                    <span class="stat-value" id="completedCount">0</span>
+                    <span class="stat-label">done</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="workspace">
+            <section class="hero">
+                <p class="eyebrow">Daily dashboard</p>
+                <h2>Build a calmer task flow.</h2>
+                <p class="hero-copy">A polished task board with soft surfaces, structured spacing, and a focus-first layout inspired by Notion.</p>
+            </section>
+
+            <section class="composer-card">
+                <div class="composer-header">
+                    <div>
+                        <p class="section-kicker">New task</p>
+                        <h3>Add something to your queue</h3>
+                    </div>
+                    <span class="composer-pill">Press Enter to add</span>
+                </div>
+
+                <div class="input-section">
+                    <input type="text" id="taskInput" placeholder="Write a task, idea, or next step..." aria-label="Task Name">
+                    <button id="addButton">Add task</button>
+                </div>
+            </section>
+
+            <section class="tasks-card">
+                <div class="tasks-header">
+                    <div>
+                        <p class="section-kicker">Task list</p>
+                        <h3>Open items</h3>
+                    </div>
+                    <span class="composer-pill subtle">Minimal, organized, editable</span>
+                </div>
+
+                <ul id="taskList" aria-live="polite">
+                    <!-- Tasks will be injected here by JavaScript -->
+                </ul>
+
+                <p class="empty-state" id="emptyState">No tasks yet. Start with one clear next action.</p>
+            </section>
+        </main>
     </div>
 
     <script src="script.js"></script>
